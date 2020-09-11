@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Git checkout') {
             // git 'https://github.com/celeguim/k8scicd'
-            echo 'this is already defined in Jenkins job as Pipeline project
+            echo 'this is already defined in Jenkins job as Pipeline project'
         }
         stage('Build') {
             agent { 
