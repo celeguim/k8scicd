@@ -1,10 +1,17 @@
 pipeline {
     agent any
     environment {
-        registry = "magalixcorp/k8scicd"
+        registry = "celeguim/k8scicd"
         GOCACHE = "/tmp"
+        def dockerHome = tool 'MyDocker'
+        def mavenHome  = tool 'MyMaven'
+        env.PATH = "${dockerHome}/bin:${mavenHome}/bin:${env.PATH}"
     }
     stages {
+        stage('Git checkout') {
+            # git 'https://github.com/celeguim/k8scicd'
+            echo 'this is already defined in Jenkins job as Pipeline project
+        }
         stage('Build') {
             agent { 
                 docker { 
