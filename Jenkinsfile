@@ -6,13 +6,9 @@ pipeline {
     }
     stages {
         stage('Initialize') {   
-            def dockerHome = tool 'MyDocker'
-            def mavenHome  = tool 'MyMaven'
+            def dockerHome = tool 'docker'
+            def mavenHome  = tool 'maven'
             env.PATH = "${dockerHome}/bin:${mavenHome}/bin:${env.PATH}"
-        }
-        stage('Git checkout') {
-            // git 'https://github.com/celeguim/k8scicd'
-            echo 'this is already defined in Jenkins job as Pipeline project'
         }
         stage('Build') {
             agent { 
