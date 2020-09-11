@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    // agent any
     environment {
         registry = "celeguim/k8scicd"
         GOCACHE = "/tmp"
