@@ -4,12 +4,10 @@ pipeline {
         registry = "celeguim/k8scicd"
         GOCACHE = "/tmp"
     }
+    agent {
+      label 'docker' 
+    }
     stages {
-        stage('Initialize') {   
-            def dockerHome = tool 'docker'
-            def mavenHome  = tool 'maven'
-            env.PATH = "${dockerHome}/bin:${mavenHome}/bin:${env.PATH}"
-        }
         stage('Build') {
             agent { 
                 docker { 
