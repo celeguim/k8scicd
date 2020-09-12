@@ -5,7 +5,7 @@ pipeline {
         GOCACHE = "/tmp"
     }
     agent {
-      label 'docker' 
+      label 'master' 
     }
     stages {
         stage('Build') {
