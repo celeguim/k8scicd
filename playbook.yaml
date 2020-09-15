@@ -3,12 +3,15 @@
   tasks:
   - name: Deploy the service
     k8s:
+      kubeconfig: /var/lib/jenkins/.kube/config
       state: present
       definition: "{{ lookup('template', 'service.yaml') | from_yaml }}"
       validate_certs: no
       namespace: default
+
   - name: Deploy the application
     k8s:
+      kubeconfig: /var/lib/jenkins/.kube/config
       state: present
       validate_certs: no
       namespace: default
